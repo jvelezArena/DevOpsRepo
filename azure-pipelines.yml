@@ -15,16 +15,16 @@ stages:
   jobs:
   - job: install_maven
     steps:
-      - task: Maven@3
+      - task: Maven@4
         inputs:
-            mavenPomFile: './pom.xml'
-            mavenOptions: '-Xmx3072m'
-            javaHomeOption: 'JDKVersion'
-            jdkVersionOption: '1.11'
-            jdkArchitectureOption: 'x64'
-            publishJUnitResults: false
-            testResultsFiles: '**/surefire-reports/TEST-*.xml'
-            goals: 'package'
+          mavenPomFile: 'pom.xml'
+          publishJUnitResults: false
+          javaHomeOption: 'JDKVersion'
+          mavenVersionOption: 'Default'
+          mavenAuthenticateFeed: false
+          effectivePomSkip: false
+          sonarQubeRunAnalysis: true
+          sqMavenPluginVersionChoice: 'latest'
 
   - job: maven_command
     steps:
