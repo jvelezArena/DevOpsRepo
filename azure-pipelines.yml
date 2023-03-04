@@ -4,13 +4,12 @@
 # https://aka.ms/yaml
 
 trigger:
-- master
 - first-branch
 
 stages: 
 - stage: Preparing_Env
   pool:
-    vmImage: 'Ubuntu-16.04'
+    vmImage: ubuntu-lastest
 
 
   jobs:
