@@ -9,7 +9,7 @@ trigger:
 stages: 
 - stage: Preparing_Env
   pool:
-    vmImage: ubuntu-lastest
+    vmImage: ubuntu-latest
 
 
   jobs:
