@@ -1,0 +1,32 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- first-branch
+
+stages: 
+- stage: Preparing_Env
+  pool:
+    vmImage: ubuntu-latest
+
+
+  jobs:
+  - job: install_maven
+    steps:
+      - task: Maven@4
+        inputs:
+          mavenPomFile: 'pom.xml'
+          publishJUnitResults: false
+          javaHomeOption: 'JDKVersion'
+          mavenVersionOption: 'Default'
+          mavenAuthenticateFeed: false
+          effectivePomSkip: false
+          sonarQubeRunAnalysis: true
+          sqMavenPluginVersionChoice: 'latest'
+
+  - job: maven_command
+    steps:
+      - script: sudo apt-get install maven
+        displayName: 'Starting maven'
