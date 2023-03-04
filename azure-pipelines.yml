@@ -30,3 +30,13 @@ stages:
     steps:
       - script: sudo apt-get install maven
         displayName: 'Starting maven'
+
+  - job: install_sonarQube
+    steps:
+      - script: sudo apt-get install sonar
+        displayName: 'Installing Sonar'
+
+  - job: start_sonarQube
+    steps:
+      - script: sudo apt-get start sonarqube
+        displayName: 'Starting Sonar'
