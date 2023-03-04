@@ -23,20 +23,25 @@ stages:
           mavenVersionOption: 'Default'
           mavenAuthenticateFeed: false
           effectivePomSkip: false
-          sonarQubeRunAnalysis: true
+          sonarQubeRunAnalysis: false
           sqMavenPluginVersionChoice: 'latest'
 
   - job: maven_command
     steps:
       - script: sudo apt-get install maven
         displayName: 'Starting maven'
-
-  - job: install_sonarQube
+  
+  - job: maven_test
     steps:
-      - script: sudo apt-get install sonar
-        displayName: 'Installing Sonar'
+      - script: mvn test
+        displayName: 'Maven Test'
 
-  - job: start_sonarQube
-    steps:
-      - script: sudo apt-get start sonarqube
-        displayName: 'Starting Sonar'
+#  - job: install_sonarQube
+#    steps:
+#      - script: sudo apt-get install sonar
+#        displayName: 'Installing Sonar'
+
+#  - job: start_sonarQube
+#    steps:
+#      - script: sudo apt-get start sonarqube
+#        displayName: 'Starting Sonar'
