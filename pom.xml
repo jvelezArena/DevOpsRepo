@@ -8,6 +8,11 @@
   <name>Proyecto Dependencia Maven</name>
   <description>Proyecto sobre dependencias.</description>
 
+  <properties>
+     <maven.compiler.source>1.6</maven.compiler.source>
+     <maven.compiler.target>1.6</maven.compiler.target>
+</properties>
+
     <!-- Dependencies -->
   <dependencies>
     <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
