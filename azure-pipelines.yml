@@ -6,17 +6,6 @@
 trigger:
 - first-branch
 
-resources:
-  repositories:
-  - repository: DevOpsRepo
-    type: github
-    name: jvelezArena/DevOpsRepo
-    ref: main
-    endpoint: 'https://github.com/jvelezArena/DevOpsRepo'
-    trigger:
-    - first-branch
-    - release/*
-
 stages: 
 - stage: Preparing_Env
   pool:
