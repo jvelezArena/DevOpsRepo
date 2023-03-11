@@ -41,7 +41,18 @@ stages:
 #      - script: sudo apt-get install sonar
 #        displayName: 'Installing Sonar'
 
-  - job: start_sonarQube
+#  - job: start_sonarQube
+#    steps:
+#      - script: sudo apt-get start sonarqube
+#        displayName: 'Starting Sonar'
+
+  - job: sonarQube_analysis
     steps:
-      - script: sudo apt-get start sonarqube
-        displayName: 'Starting Sonar'
+    - task: SonarQubePrepare@5
+      inputs:
+        SonarQube: 'AzureDevopsPipeline'
+        scannerMode: 'MSBuild'
+        projectKey: 'CalculatorDevOps'
+        projectName: 'Proyecto Dependencia Maven'
+    
+    
